@@ -9,15 +9,18 @@ class App extends React.Component {
   constructor(props) {
     super(props);
   this.state = {
-      input: ''
+      input: [],
+      number: ""
     };
   this.taskInput = this.taskInput.bind(this);
    }
 
    taskInput = (taskValue) => {
     this.setState({
-      input: taskValue
+      input: taskValue,
+      number: 2
   })
+  console.log(this.state.input)
    }
 
   render() {
@@ -31,11 +34,9 @@ class App extends React.Component {
           <div className="col-md-3"></div>
         </div>
         <div className="row">
-          
           <div className="col-md-12">
-            <Table insert={this.state.input} />
+            <Table number={this.state.number} insert={this.state.input} />
           </div>
-          
         </div>
       </div>
     )

@@ -14,13 +14,15 @@ class Input extends React.Component {
         this.setState({
             input: e.target.value
         })
-        console.log(this.state.input)
     }
     
     handleInput = () => {
         console.log(this.state.input)
         if (this.state.input != '') {
             this.props.taskInput(this.state.input)
+            this.setState({
+                input: ''
+            })
         }
     }
     render() {

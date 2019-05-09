@@ -3,38 +3,37 @@ import React from 'react';
 class Table extends React.Component {
     constructor(props) {
         super(props);
-      this.state = { term: '' };
+      this.state = {
+          percent: 100,
+          number: 2
+        };
+    //   this.handleInput = this.handleInput.bind(this);
+      this.UNSAFE_componentWillReceiveProps = this.UNSAFE_componentWillReceiveProps.bind(this);
        }
+
+       UNSAFE_componentWillReceiveProps() {
+            this.setState({
+                number: this.props.number,
+                percent: 100/this.state.number
+            })
+       }
+
     render() {
       return (
         <div>
             <table class="table">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col-md-1">#</th>
+                        <th scope="col-md-9">Task</th>
+                        <th scope="col-md-2">Percent: <span>{this.state.percent}</span>%</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">{this.props.number}</th>
                         <td>{this.props.insert}</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
