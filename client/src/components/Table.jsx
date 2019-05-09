@@ -1,6 +1,10 @@
 import React from 'react';
 
 class Table extends React.Component {
+    constructor(props) {
+        super(props);
+      this.state = { term: '' };
+       }
     render() {
       return (
         <div>
@@ -16,7 +20,7 @@ class Table extends React.Component {
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Mark</td>
+                        <td>{this.props.insert}</td>
                         <td>Otto</td>
                         <td>@mdo</td>
                     </tr>
@@ -31,22 +35,6 @@ class Table extends React.Component {
                         <td>Larry</td>
                         <td>the Bird</td>
                         <td>@twitter</td>
-                    </tr>
-                </tbody>
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
                     </tr>
                 </tbody>
             </table>
