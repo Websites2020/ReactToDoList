@@ -5,17 +5,37 @@ class Table extends React.Component {
         super(props);
       this.state = {
           percent: 100,
-          number: 2
+          number: 1,
+          text: ""
         };
-    //   this.handleInput = this.handleInput.bind(this);
+        this.myRef = React.createRef();
       this.UNSAFE_componentWillReceiveProps = this.UNSAFE_componentWillReceiveProps.bind(this);
        }
 
        UNSAFE_componentWillReceiveProps() {
-            this.setState({
-                number: this.props.number,
-                percent: 100/this.state.number
-            })
+            this.setState({ 
+                number: this.state.number+1, 
+                percent: 100/this.state.number,
+                text: this.props.insert
+            }, function stateUpdateComplete() {
+                        
+                console.log(this.state.number-1)
+                console.log(this.state.percent)
+                console.log(this.state.text)
+
+                const table = this.myRef.current;
+                var tr = document.createElement('tr');   
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+                var text1 = document.createTextNode(this.state.number-1);
+                var text2 = document.createTextNode(this.state.text);
+                td1.appendChild(text1);
+                td2.appendChild(text2);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                table.appendChild(tr);
+            }.bind(this))
+        
        }
 
     render() {
@@ -29,12 +49,8 @@ class Table extends React.Component {
                         <th scope="col-md-2">Percent: <span>{this.state.percent}</span>%</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">{this.props.number}</th>
-                        <td>{this.props.insert}</td>
-                        <td></td>
-                    </tr>
+                <tbody ref={this.myRef}>
+
                 </tbody>
             </table>
         </div>

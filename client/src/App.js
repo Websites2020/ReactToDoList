@@ -5,22 +5,21 @@ import './App.css';
 import Table from './components/Table';
 import Input from './components/Input';
 
+let input = "";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
   this.state = {
-      input: [],
-      number: ""
+      input: ""
     };
   this.taskInput = this.taskInput.bind(this);
    }
 
    taskInput = (taskValue) => {
-    this.setState({
-      input: taskValue,
-      number: 2
-  })
-  console.log(this.state.input)
+      this.setState({
+        input: taskValue
+    })
    }
 
   render() {
@@ -35,7 +34,9 @@ class App extends React.Component {
         </div>
         <div className="row">
           <div className="col-md-12">
+          
             <Table number={this.state.number} insert={this.state.input} />
+            
           </div>
         </div>
       </div>
