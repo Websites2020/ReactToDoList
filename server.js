@@ -6,8 +6,6 @@ const path = require('path');
 
 // npm run dev
 
-app.get('/', (req, res) => res.sendFile(path.join(__dirname+'/index.html')));
-
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
     app.use(express.static(path.join(__dirname, 'client/build')));
@@ -16,5 +14,7 @@ if (process.env.NODE_ENV === 'production') {
       res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
     });
   }
+
+app.get('/', (req, res) => res.sendFile(path.join(__dirname+'/index.html')));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
