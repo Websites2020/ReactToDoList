@@ -32,10 +32,25 @@
   }
 }
 
+ol {
+  margin-left: 0px;
+  padding-left:0px
+}
+li {
+  padding: 20px;
+}
+li:nth-child(2n+1) {
+  background: rgb(221, 220, 220);
+}
+button{
+  margin: 0px 10px;
+}
 .right {
   float: right;
 }
-
 .check {
   text-decoration:line-through;
+}
+.textRight {
+  text-align: right;
 }
