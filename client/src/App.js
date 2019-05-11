@@ -5,13 +5,11 @@ import './App.css';
 import Table from './components/Table';
 import Input from './components/Input';
 
-let input = "";
-
 class App extends React.Component {
   constructor(props) {
     super(props);
   this.state = {
-      input: ""
+      input: "doesn't work"
     };
   this.taskInput = this.taskInput.bind(this);
    }
@@ -35,14 +33,15 @@ class App extends React.Component {
         <div className="row">
           <div className="col-md-12">
           
-            <Table number={this.state.number} insert={this.state.input} />
-            
+            <Table insert={this.state.input} />
+          
           </div>
         </div>
       </div>
     )
       
   }
+
 }
 
 export default App;
