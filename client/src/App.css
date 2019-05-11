@@ -50,7 +50,11 @@ button{
 }
 .check {
   text-decoration:line-through;
+  color: gray;
 }
 .textRight {
   text-align: right;
+}
+.center {
+  text-align: center;
 }

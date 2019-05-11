@@ -93,21 +93,23 @@ class App extends React.Component {
           <div className="col-md-3"></div>
           <div className="col-md-6">
             <br />
-              <Input taskInput={this.taskInput} />
-            <br />
+              <Input taskInput={this.taskInput} />         
           </div>
           <div className="col-md-3"></div>
         </div>
         <div className="row">
           <div className="col-md-12">
-          
-            
+            <p className="center">A To-Do List built with React, running on Nodejs/Express, and styled on Bootstrap. State and Props are used.</p>
+          </div>
+          </div>
+        <div className="row">
+          <div className="col-md-12">
             <table className="table">
               <thead>
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Task</th>
-                  <th className="textRight" scope="col">Percent <span>{this.state.percent}</span>%</th>
+                  <th className="textRight" scope="col">Percent Completed: <span>{this.state.percent}</span>%</th>
                 </tr>
               </thead>
               <tbody>
