@@ -30,6 +30,8 @@ class App extends React.Component {
    }
 
    del(e) {
+    let x = document.getElementById(e.target.id)
+
     console.log(e.target.id);
     let array = this.state.input
     console.log(array[e.target.id])
@@ -38,7 +40,20 @@ class App extends React.Component {
     console.log(array)
     this.setState({
       input: array,
+      total: this.state.total-1,
     })
+    
+    if (x.className == "check") {
+      this.setState({
+        checked: this.state.checked-1,
+        
+      }, function updateCheckedPer() {
+        console.log(this.state.checked)
+        this.setState({
+          percent: ((this.state.checked/this.state.total)*100).toFixed(2)
+        })
+      }.bind(this))
+    }
   }
 
   check(e) {
@@ -57,7 +72,7 @@ class App extends React.Component {
         })
       }.bind(this))
       x.className = "check";
-    } else {
+    } else if (x.className == "check") {
       this.setState({
         checked: this.state.checked-1,
         
@@ -69,44 +84,6 @@ class App extends React.Component {
       }.bind(this))
       x.className = "";
     }
-    
-    
-    // if (x.className == "") {
-    //   if (this.state.number != 1) {
-    //     this.setState({
-    //       percent: (100/(this.state.number-1)).toFixed(2),
-    //       number: this.state.number-1
-    //     })
-    //     x.className = "check";
-    //   } else {
-    //     if (this.state.number != 1) {
-    //       this.setState({
-    //         percent: (100/(this.state.number)).toFixed(2),
-    //         number: this.state.number-1
-    //       })
-    //       x.className = "check";
-    //     }
-    //   }
-    // } else {
-    //   if (this.state.total != this.state.number) {
-    //     this.setState({
-    //       number: this.state.number+1
-    //     }, function updatePer() {
-    //       console.log(this.state.number)
-    //       this.setState({
-    //         percent: (this.state.percent/this.state.number).toFixed(2),
-    //       })
-    //     }.bind(this))
-        
-    //     x.className = "";
-    //   } else {
-    //     this.setState({
-    //       percent: 0,
-    //       number: this.state.total-1
-    //     })
-    //     x.className = "";
-    //   }
-    // }    
   }
  
   render() {
